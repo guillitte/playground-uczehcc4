@@ -69,16 +69,18 @@ def pollard(n,a=1,c=3):
 
 def factor(n,k=25):
     # Décompose n en facteurs probablement premiers
-    a=pollard(n)
-    if a==n: # pas de factorisation     
-        comp = pow(2,n,n)!=2 # n est composé
-        if a==2 or (a<561 and not comp): # les premiers < 561 
-            return [a]    
-        if comp or not isPrime(n,k): # on sait que n n'est pas premier
-            while a==n: # tant qu'on n'a pas de facteur
-                a=pollard(n,a=randint(0,n-1),c=randint(2,n-1)) # on essaye avec d'autres valeurs
-        else: # n est probablement premier
-            return [a]
+    comp = pow(2,n,n)!=2 # n est composé
+    if n==2 or (n<561 and not comp): # les premiers < 561 
+            return [n]
+    if not comp and isPrime(n,k): # on pense que n est premier
+        return [n]
+    if n&1==0:
+        a=2
+    else:
+        a=pollard(n)   
+    while a==n: # tant qu'on n'a pas de facteur
+        # on essaye avec d'autres valeurs
+        a=pollard(n,a=randint(0,n-1),c=randint(2,n-1))                   
     return factor(a)+factor(n//a)
 
     
