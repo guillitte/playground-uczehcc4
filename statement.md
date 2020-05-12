@@ -74,7 +74,7 @@ def factor(n,k=25):
         comp = pow(2,n,n)!=2 # n est composé
         if a==2 or (a<561 and not comp): # les premiers < 561 
             return [a]    
-        if comp or not isPrime(n): # on sait que n n'est pas premier
+        if comp or not isPrime(n,k): # on sait que n n'est pas premier
             while a==n: # tant qu'on n'a pas de facteur
                 a=pollard(n,a=randint(0,n-1),c=randint(2,n-1)) # on essaye avec d'autres valeurs
         else: # n est probablement premier
