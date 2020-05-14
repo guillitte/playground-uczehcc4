@@ -108,10 +108,10 @@ def factor(n, k=25, div=rho):
     if not comp and isPrime(n,k): # n est probablement premier
         return [n]
     if n&1==0: # n est pair
-        return [2]+factor1(n>>1)
+        return [2]+factor(n>>1)
     for p in [3,5,7,11,13,17,19]:
         if n%p==0: #n est divisible par un petit premier
-            return [p]+factor1(n//p)
+            return [p]+factor(n//p)
     f=div(n) # f est un facteur de n   
     while f==n: # tant qu'on n'a pas de facteur strict
         # on essaye avec d'autres valeurs
