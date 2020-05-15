@@ -91,7 +91,8 @@ def rho(n,a=2):
         if f==0 or i%k==0:
             g = gcd(n,p)
             k<<=1
-            x = a            
+            x = a
+            p = 1            
         i += 1
         p *= f
         p %=n
