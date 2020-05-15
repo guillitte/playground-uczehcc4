@@ -87,14 +87,16 @@ def rho(n,a=2):
     i=0    
     while g==1:
         a = (a*a+1)%n
-        f = abs((a-x))
+        f = abs(a-x)
         if f==0 or i%k==0:
-            g = gcd(n,p )
+            g = gcd(n,p)
             k<<=1
             x = a            
         i += 1
         p *= f
         p %=n
+        if p==0 and f!=0 and g==1:
+            g= gcd(f,n)
                 
     #print('Rho : n iter', i, 'g=', g)
     return g
