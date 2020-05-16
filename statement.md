@@ -75,7 +75,7 @@ def pollard(n,a=1,c=3):
         c = pow(c,a,n)
         g = gcd(n, ((c-1)*abs(b-a))%n)
     
-    #print('Polard rho et p-1 : n iter', i, 'g=', g)
+    #print('Polard rho et p-1 : iter', i, 'n=', n,'g=', g)
     return g
 
 def rho(n,a=2):
@@ -94,14 +94,15 @@ def rho(n,a=2):
                 break
             k<<=1
             x = a
+            p = 1
                
         i += 1
         p *= f
-        p %=n
+        p %= n
         if p==0 and g==1:
-            g= gcd(f,n)
+            g = gcd(f,n)
                 
-    #print('Rho : n iter', i, 'g=', g)
+    #print('Rho : iter', i, 'n=', n, 'g=', g)
     return g
 
 def factor(n, k=25, div=rho):
