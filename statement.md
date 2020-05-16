@@ -90,13 +90,15 @@ def rho(n,a=2):
         f = abs(a-x)
         if f==0 or i%k==0:
             g = gcd(n,p)
+            if f==0:
+                break
             k<<=1
             x = a
-            p = 1            
+               
         i += 1
         p *= f
         p %=n
-        if p==0 and f!=0 and g==1:
+        if p==0 and g==1:
             g= gcd(f,n)
                 
     #print('Rho : n iter', i, 'g=', g)
