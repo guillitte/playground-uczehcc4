@@ -1,6 +1,6 @@
 # Bonjour!
 
-Ce programme perment de décomposer un nombre naturel en facteurs premiers
+Ce programme permet de décomposer un nombre naturel en facteurs premiers
 
 ```python runnable
 from time import time
