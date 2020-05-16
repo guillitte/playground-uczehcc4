@@ -119,7 +119,7 @@ def factor(n, k=25, div=rho):
         if n%p==0: #n est divisible par un petit premier
             return [p]+factor(n//p)
     f=div(n) # f est un facteur de n   
-    while f==n: # tant qu'on n'a pas de facteur strict
+    while f==1 or f==n: # tant qu'on n'a pas de facteur strict
         # on essaye avec d'autres valeurs
         f=div(n,a=randint(0,n-1))                   
     return factor(f)+factor(n//f)
