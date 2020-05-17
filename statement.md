@@ -109,7 +109,7 @@ def factor(n, k=25, div=rho):
     # Décompose n en facteurs probablement premiers
     # div = pollard ou rho
     comp = pow(2,n,n)!=2 # n est composé si vrai
-    if n==2 or (n<561 and not comp): # n est un premier < 561 
+    if n==2 or (n<341 and not comp): # n est un premier < 341 
             return [n]
     if not comp and isPrime(n,k): # n est probablement premier
         return [n]
